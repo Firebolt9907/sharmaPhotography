@@ -16,11 +16,11 @@ export default function Home () {
         <Thumbnail
           imageSrc='https://github.com/Firebolt9907/firebolt9907.github.io/blob/react-refactor/assets/langIcons/pytorch.webp?raw=true'
           description='grrrrr'
-        />
+        ></Thumbnail>
         <Thumbnail
-          imageSrc='https://github.com/Firebolt9907/firebolt9907.github.io/blob/react-refactor/assets/langIcons/pytorch.webp?raw=true'
+          imageSrc='https://github.com/Firebolt9907/firebolt9907.github.io/blob/react-refactor/assets/langIcons/java.svg?raw=true'
           description='grrrrr'
-        />
+        ></Thumbnail>
       </motion.div>
       <div style={{ height: '4000px' }}></div>
     </div>

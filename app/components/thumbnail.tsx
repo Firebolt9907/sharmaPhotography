@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect, type FC } from 'react'
+import { useState, type FC } from 'react'
 
 interface ThumbnailProps {
   description: string
@@ -193,6 +193,8 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
           scale: 1.0,
           rotateX: -cursorPosition.y / 7,
           rotateY: cursorPosition.x / 10,
+          translateX: cursorPosition.x / 20,
+          translateY: cursorPosition.y / 14,
           perspective: '100px',
           boxShadow: `${(cursorPosition.x / -10) * 1.5}px ${
             (cursorPosition.y / -7) * 1.5
@@ -204,6 +206,8 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
           scale: 0.95,
           rotateX: 0,
           rotateY: 0,
+          translateX: 0,
+          translateY: 0,
           perspective: '0px',
           transition: { duration: 0.3 },
           boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.8)`
@@ -211,6 +215,8 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
         animate={{
           rotateX: 0,
           rotateY: 0,
+          translateX: 0,
+          translateY: 0,
           perspective: '0px',
           boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.2)`,
           transition: { duration: 0.3 },
