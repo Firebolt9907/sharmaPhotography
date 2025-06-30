@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState, type FC } from 'react'
 
-interface ThumbnailProps {
+interface ButtonProps {
   description: string
   imageSrc: string
 }
@@ -12,7 +12,7 @@ const layoutTransition = {
   damping: 15
 } as const
 
-const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
+const Button: FC<ButtonProps> = ({ description, imageSrc }) => {
   const [stateOpen, setOpen] = useState(false)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
@@ -184,7 +184,7 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
     <motion.div
       layoutId={imageSrc}
       transition={layoutTransition}
-      className='cursor-pointer p-2'
+      className='card cursor-pointer p-2'
       onClick={handleToggle}
       onMouseMove={handleMouseMove}
     >
@@ -226,22 +226,23 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
           setCursorPosition({ x: 0, y: 0 })
         }}
         transition={{ duration: 0 }}
-        className='h-full mx-auto text-gray-900 dark:text-white'
+        className='w-full h-full max-w-sm mx-auto text-gray-900 dark:text-white'
       >
         <motion.div
-          className='shadow h-full project-tile'
+          className='p-4 shadow h-full flex flex-col justify-start project-tile'
           layoutId={`card-${imageSrc}`}
           animate={{ borderRadius: '5px', backgroundColor: 'rgb(32,32,32)' }}
           whileHover={{
-            borderRadius: '0px',
+            borderRadius: '20px',
             backgroundColor: 'rgb(55,55,55)'
           }}
         >
           <motion.img
             layoutId={`image-${imageSrc}`}
-            className='object-cover'
+            className='mx-auto h-24 mb-4 object-contain'
             src={imageSrc}
             alt={imageSrc}
+            style={{ borderRadius: '15%' }}
           />
         </motion.div>
       </motion.div>
@@ -257,4 +258,4 @@ const Thumbnail: FC<ThumbnailProps> = ({ description, imageSrc }) => {
   )
 }
 
-export default Thumbnail
+export default Button
