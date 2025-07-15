@@ -123,6 +123,28 @@ const Thumbnail: FC<ThumbnailProps> = ({
                 />
               </div>
             </div>
+            <div
+              style={{
+                marginLeft: 'auto',
+                marginBottom: 'auto'
+              }}
+            >
+              <ShimmerButton
+                handleClick={() => handleToggle()}
+                borderless={true}
+                content={
+                  <motion.img
+                    src='https://www.svgrepo.com/show/499592/close-x.svg'
+                    style={{
+                      height: '30px',
+                      margin: '5px 15px',
+                      marginLeft: '5px',
+                      filter: 'grayscale(1) invert(1)'
+                    }}
+                  />
+                }
+              />
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>

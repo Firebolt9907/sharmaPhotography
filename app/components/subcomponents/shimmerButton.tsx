@@ -125,14 +125,13 @@ const ShimmerButton: React.FC<ShimmerButtonProps> = ({
             className='shadow h-full flex flex-col justify-start'
             layoutId={`card-${title}`}
             animate={{
-              borderRadius: standardBorderRadius,
-              backgroundColor: background,
-              clipPath: 'inset(0 round 5px)'
-            }}
-            whileHover={{
-              borderRadius: hoveredBorderRadius,
-              backgroundColor: backgroundHovered,
-              clipPath: `inset(0 round ${hoveredBorderRadius})`
+              borderRadius: hovered
+                ? hoveredBorderRadius
+                : standardBorderRadius,
+              backgroundColor: hovered ? backgroundHovered : background,
+              clipPath: `inset(0 round ${
+                hovered ? hoveredBorderRadius : standardBorderRadius
+              })`
             }}
             style={{
               overflow: 'hidden',
