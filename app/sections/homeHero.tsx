@@ -1,6 +1,5 @@
 import { LayoutGroup, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import isMobile from '~/components/scripts/isMobile'
 
 const HomeHero: React.FC = () => {
   const maxBorderRadius = 30
