@@ -72,10 +72,9 @@ const Thumbnail: FC<ThumbnailProps> = ({
             src={imageSrc}
             alt={imageSrc}
             style={{
-              zIndex: 1001,
               maxHeight: '75vh',
               maxWidth: '50vw',
-              marginLeft: 'auto'
+              marginLeft: 'auto',
             }}
           />
         </div>
@@ -86,7 +85,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
           // onMouseMove={handleMouseMove}
           initial={{
             borderRadius: '40px',
-            marginLeft: '-50vw',
+            marginLeft: '-40vw',
             opacity: 0
           }}
           animate={{
@@ -97,6 +96,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
           style={{
             position: 'sticky',
             margin: 'auto'
+            // marginTop: '120px'
           }}
         >
           <motion.div
@@ -137,7 +137,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
                     src='https://www.svgrepo.com/show/499592/close-x.svg'
                     style={{
                       height: '30px',
-                      margin: '5px 15px',
+                      margin: '5px 10px',
                       marginLeft: '5px',
                       filter: 'grayscale(1) invert(1)'
                     }}
