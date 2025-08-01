@@ -26,7 +26,7 @@ export default function ShimmerButton ({
   description = ''
 }: ShimmerButtonProps) {
   const angleModifier = 15 * (isMobile() ? 1.5 : 1)
-  const translateModifier = 12 * (tile ? 1 : 0.5)
+  const translateModifier = 12 * (tile ? 1 : 0.5) * (isMobile() ? 1.5 : 1)
   const shadowPositionModifier = -15
   var parallaxAngleModifier = 0.7
   var parallaxTranslateModifier = 0.7
