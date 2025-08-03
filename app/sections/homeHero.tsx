@@ -10,11 +10,12 @@ const HomeHero: React.FC = () => {
   const maxTopMargin = 180
   const scrollModifier = 0.006
   const [scrollY, setScrollY] = useState(0)
+  const [height, updateHeight] = useState(0)
 
   useEffect(() => {
+    updateHeight(window.innerHeight)
+
     const handleScroll = () => {
-      console.log('scrollpos' + window.scrollY)
-      console.log('index: ' + Math.min(window.scrollY * scrollModifier))
       setScrollY(Math.min(window.scrollY * scrollModifier, 1))
     }
 
@@ -27,7 +28,7 @@ const HomeHero: React.FC = () => {
 
   return (
     <LayoutGroup>
-      <div style={{ height: maxTopMargin + window.innerHeight }}>
+      <div style={{ height: maxTopMargin + height +"px"}}>
         <motion.div
           className='h-screen w-full sticky'
           animate={{
