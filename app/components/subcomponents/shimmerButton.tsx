@@ -14,7 +14,7 @@ interface ShimmerButtonProps {
   description?: string
 }
 
-export default function ShimmerButton ({
+export default function ShimmerButton({
   content,
   title = undefined,
   handleClick,
@@ -49,7 +49,7 @@ export default function ShimmerButton ({
 
   useEffect(() => {
     if (!containerRef.current) return
-    function checkCenter () {
+    function checkCenter() {
       const rect = containerRef.current!.getBoundingClientRect()
       const elementCenterY = rect.top + rect.height / 2
       const viewportCenterY = window.innerHeight / 2
@@ -82,7 +82,7 @@ export default function ShimmerButton ({
     }
   }, [])
 
-  function handleMouseMove (e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const rect = e.currentTarget.getBoundingClientRect()
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
@@ -150,11 +150,9 @@ export default function ShimmerButton ({
             x: cursorPosition.xStandard * translateModifier,
             y: cursorPosition.yStandard * translateModifier,
             perspective: hovered ? '100px' : '0px',
-            boxShadow: `${
-              cursorPosition.xStandard * shadowPositionModifier
-            }px ${
-              cursorPosition.yStandard * shadowPositionModifier
-            }px 20px rgba(0, 0, 0, ${hovered ? 0.4 : 0.2})`,
+            boxShadow: `${cursorPosition.xStandard * shadowPositionModifier
+              }px ${cursorPosition.yStandard * shadowPositionModifier
+              }px 20px rgba(0, 0, 0, ${hovered ? 0.4 : 0.2})`,
             transition: { duration: hovered ? 0 : 0.6 },
             borderRadius: hovered ? hoveredBorderRadius : standardBorderRadius,
             scale: !hovered ? 1 : tile ? 1.1 : 1.1,
@@ -176,9 +174,8 @@ export default function ShimmerButton ({
                 ? hoveredBorderRadius
                 : standardBorderRadius,
               backgroundColor: hovered ? backgroundHovered : background,
-              clipPath: `inset(0 round ${
-                hovered ? hoveredBorderRadius : standardBorderRadius
-              })`
+              clipPath: `inset(0 round ${hovered ? hoveredBorderRadius : standardBorderRadius
+                })`
             }}
             style={{
               overflow: 'hidden',
@@ -187,9 +184,8 @@ export default function ShimmerButton ({
                 tile && !borderless ? `2px solid ${backgroundHovered}` : '',
               borderRadius: standardBorderRadius,
               transform: 'preserve-3d',
-              padding: `calc(var(--spacing) * ${
-                4 - (borderless ? 4 : tile ? 2 : 0)
-              })`
+              padding: `calc(var(--spacing) * ${4 - (borderless ? 4 : tile ? 2 : 0)
+                })`
             }}
           >
             <motion.div
@@ -253,7 +249,7 @@ export default function ShimmerButton ({
         className='text-center text-sm'
         animate={{
           marginTop: hovered ? '40px' : '10px',
-          marginBottom: hovered ? '-40px' : '-10px',
+          marginBottom: hovered ? '0px' : '0px',
           color: hovered ? 'rgb(255,255,255)' : 'rgb(200,200,200)'
         }}
         transition={{ duration: hovered ? 0.1 : 0.6 }}

@@ -100,6 +100,7 @@ const HomeHero: React.FC = () => {
                       Paintings
                     </motion.p>
                   }
+                  loadingIndex={4}
                 />
                 <RedirectButton
                   handleClick={() => {
@@ -112,6 +113,7 @@ const HomeHero: React.FC = () => {
                       Photos
                     </motion.p>
                   }
+                  loadingIndex={5}
                 />
               </motion.div>
             </motion.div>

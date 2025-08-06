@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState, type FC } from 'react'
 import ShimmerButton from './subcomponents/shimmerButton'
+import ImageData from '~/components/enums/imageData'
 
 interface ThumbnailProps {
-  description: string
-  imageSrc: string
+  imageData?: ImageData
   loadingIndex?: number
 }
 
@@ -15,8 +15,7 @@ const layoutTransition = {
 } as const
 
 const Thumbnail: FC<ThumbnailProps> = ({
-  description,
-  imageSrc,
+  imageData = new ImageData("","", '', ''),
   loadingIndex = 0
 }) => {
   const [stateOpen, setOpen] = useState(false)
@@ -28,10 +27,10 @@ const Thumbnail: FC<ThumbnailProps> = ({
   var tileContent = (
     <div>
       <motion.img
-        layoutId={`image-${imageSrc}`}
+        layoutId={`image-${imageData.src}`}
         className='mx-auto object-contain'
-        src={imageSrc}
-        alt={imageSrc}
+        src={imageData.src}
+        alt={imageData.src}
       />
       {/* <motion.p
         layoutId={`desc-${imageSrc}`}
@@ -66,11 +65,11 @@ const Thumbnail: FC<ThumbnailProps> = ({
       >
         <div style={{ zIndex: 1001, marginRight: '30px' }}>
           <motion.img
-            layoutId={`image-${imageSrc}`}
+            layoutId={`image-${imageData.src}`}
             className='object-contain'
             animate={{ borderRadius: '0px' }}
-            src={imageSrc}
-            alt={imageSrc}
+            src={imageData.src}
+            alt={imageData.src}
             style={{
               maxHeight: '75vh',
               maxWidth: '50vw',
@@ -101,22 +100,22 @@ const Thumbnail: FC<ThumbnailProps> = ({
         >
           <motion.div
             className='p-6 shadow-2xl bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col md:flex-row items-center gap-6'
-            layoutId={`card-${imageSrc}`}
+            layoutId={`card-${imageData.src}`}
           >
             <div className='text-left w-full'>
               <motion.h3
-                layoutId={`desc-${imageSrc}`}
+                layoutId={`desc-${imageData.src}`}
                 className='text-3xl font-bold mb-1'
               >
-                {description}
+                {imageData.description}
               </motion.h3>
-              <motion.p layoutId={`desc-u${imageSrc}`} className='text-base'>
-                {description}
+              <motion.p layoutId={`desc-u${imageData.src}`} className='text-base'>
+                {imageData.location}
               </motion.p>
               <div className='flex flex-row md:flex-row items-start md:items-center gap-2 mt-4'>
                 <ShimmerButton
                   content={<p>Buy</p>}
-                  handleClick={() => window.open(imageSrc, '_blank')}
+                  handleClick={() => window.open(imageData.src, '_blank')}
                   loadingIndex={0}
                   tile={false}
                   title='buy'
@@ -151,18 +150,18 @@ const Thumbnail: FC<ThumbnailProps> = ({
     </div>
   ) : (
     <motion.div
-      layoutId={imageSrc}
+      layoutId={imageData.src}
       transition={layoutTransition}
       className='card cursor-pointer'
     >
       <ShimmerButton
         content={tileContent}
-        title={imageSrc}
+        title={imageData.src}
         handleClick={handleToggle}
         tile={true}
         loadingIndex={loadingIndex}
         borderless={true}
-        description={description}
+        description={imageData.description}
       />
     </motion.div>
   )
