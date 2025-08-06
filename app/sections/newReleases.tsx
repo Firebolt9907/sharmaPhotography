@@ -51,9 +51,6 @@ const NewReleases: React.FC = () => {
         New Releases
       </motion.h3>
       <motion.div className='grid p-10 gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
-        <Thumbnail
-          imageData={new ImageData("https://github.com/Firebolt9907/sharmaPhotography/blob/master/photos/PXL_20241219_162739125.MP.jpg?raw=true", "grrrr", "", "" )}
-        ></Thumbnail>
         {images.map((image, index) => (<Thumbnail imageData={image} />
         ))}
       </motion.div>
