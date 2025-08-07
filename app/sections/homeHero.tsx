@@ -28,9 +28,9 @@ const HomeHero: React.FC = () => {
 
   return (
     <LayoutGroup>
-      <div style={{ height: maxTopMargin + height +"px"}}>
+      <div style={{ height: maxTopMargin + height + "px" }}>
         <motion.div
-          className='h-screen w-full sticky'
+          className='h-screen w-full sticky overflow-hidden'
           animate={{
             top: 0
           }}
@@ -75,18 +75,20 @@ const HomeHero: React.FC = () => {
               <motion.h1
                 className='text-white'
                 style={{
-                  fontSize: '10vw',
+                  fontSize: '9vw',
                   fontWeight: 'bold',
                   textAlign: 'center',
                   fontFamily: 'Bebas Neue',
                   //   position: 'sticky',
                   top: 50
                 }}
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{
+                  opacity: 0, scale: 0.8,
+                }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, type: 'spring', delay: 0.3 }}
               >
-                Sharma Photography
+                S3 - <p style={{ fontFamily: "Water Brush", display: 'inline' }}>Stroke & Snap </p><p style={{ fontSize: "3vw" }}> by Sharma</p>
               </motion.h1>
               <motion.div className='flex flex-row gap-6 justify-center'>
                 <RedirectButton
@@ -150,8 +152,8 @@ const HomeHero: React.FC = () => {
             </motion.p>
           </motion.div>
         </motion.div>
-      </div>
-    </LayoutGroup>
+      </div >
+    </LayoutGroup >
   )
 }
 export default HomeHero

@@ -15,12 +15,12 @@ const layoutTransition = {
 } as const
 
 const Thumbnail: FC<ThumbnailProps> = ({
-  imageData = new ImageData("","", '', ''),
+  imageData = new ImageData("", "", '', ''),
   loadingIndex = 0
 }) => {
   const [stateOpen, setOpen] = useState(false)
 
-  function handleToggle () {
+  function handleToggle() {
     setOpen(!stateOpen)
   }
 
@@ -31,6 +31,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
         className='mx-auto object-contain'
         src={imageData.src}
         alt={imageData.src}
+        style={{ height: "40vh" }}
       />
       {/* <motion.p
         layoutId={`desc-${imageSrc}`}
@@ -73,6 +74,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
             style={{
               maxHeight: '75vh',
               maxWidth: '50vw',
+              // height: "50vh",
               marginLeft: 'auto',
             }}
           />
@@ -152,7 +154,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
     <motion.div
       layoutId={imageData.src}
       transition={layoutTransition}
-      className='card cursor-pointer'
+      className='card cursor-pointer overflow-visible'
     >
       <ShimmerButton
         content={tileContent}

@@ -24,10 +24,14 @@ export const links: Route.LinksFunction = () => [
   {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'
+  },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Water+Brush&display=swap'
   }
 ]
 
-export function Layout ({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <head>
@@ -45,11 +49,11 @@ export function Layout ({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default function App () {
+export default function App() {
   return <Outlet />
 }
 
-export function ErrorBoundary ({ error }: Route.ErrorBoundaryProps) {
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = 'Oops!'
   let details = 'An unexpected error occurred.'
   let stack: string | undefined
