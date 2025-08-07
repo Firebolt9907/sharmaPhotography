@@ -2,6 +2,7 @@ import type { Route } from './+types/home'
 import NewReleases from '~/sections/newReleases'
 import HomeHero from '~/sections/homeHero'
 import AboutMe from '~/sections/aboutMe'
+import ContactMe from '~/sections/contactMe'
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -26,6 +27,8 @@ export default function Home() {
       <AboutMe />
 
       <NewReleases />
+
+      <ContactMe />
 
     </div>
   )

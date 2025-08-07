@@ -8,7 +8,7 @@ const NewReleases: React.FC = () => {
   const [images, updateImages] = useState<ImageData[]>([])
 
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/Firebolt9907/sharmaPhotography/refs/heads/master/data/images.json')
+    fetch('https://raw.githubusercontent.com/Firebolt9907/sharmaPhotographyData/refs/heads/main/images.json')
       .then(response => {
         console.log('Fetched data:', response.status)
         console.log("data: ", response.body)
@@ -21,7 +21,7 @@ const NewReleases: React.FC = () => {
             console.log("image 0: ", data.images[0])
             var tempImages = []
             for (const image of data.images) {
-              const imageObject = new ImageData(image.url, image.description, image.uploadedAt, image.location ?? "")
+              const imageObject = new ImageData(image.jpgUrl, image.webpUrl, image.description, image.uploadedAt, image.location ?? "")
               tempImages.push(imageObject)
             }
             updateImages(tempImages)

@@ -1,12 +1,14 @@
 class ImageData {
-    public src = ""
+    public jpgSrc = ""
+    public webpSrc = ""
     public description = "No description provided"
     public date = ""
     public location = "No location provided"
 
-    constructor(src: string, description: string, date: string, location: string) {
-        this.src = src,
-        this.description = description
+    constructor(jpgSrc: string, webpSrc: string, description: string, date: string, location: string) {
+        this.jpgSrc = jpgSrc,
+            this.webpSrc = webpSrc,
+            this.description = description
         this.date = date
         this.location = location
     }

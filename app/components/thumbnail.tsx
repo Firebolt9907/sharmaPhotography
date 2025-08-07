@@ -15,7 +15,7 @@ const layoutTransition = {
 } as const
 
 const Thumbnail: FC<ThumbnailProps> = ({
-  imageData = new ImageData("", "", '', ''),
+  imageData = new ImageData("", "", "", '', ''),
   loadingIndex = 0
 }) => {
   const [stateOpen, setOpen] = useState(false)
@@ -27,10 +27,10 @@ const Thumbnail: FC<ThumbnailProps> = ({
   var tileContent = (
     <div>
       <motion.img
-        layoutId={`image-${imageData.src}`}
+        layoutId={`image-${imageData.webpSrc}`}
         className='mx-auto object-contain'
-        src={imageData.src}
-        alt={imageData.src}
+        src={imageData.webpSrc}
+        alt={imageData.webpSrc}
         style={{ height: "40vh" }}
       />
       {/* <motion.p
@@ -64,19 +64,47 @@ const Thumbnail: FC<ThumbnailProps> = ({
           margin: 'auto'
         }}
       >
-        <div style={{ zIndex: 1001, marginRight: '30px' }}>
+        <div style={{
+          zIndex: 1001,
+          marginRight: '30px',
+          position: 'relative',
+          width: '50vw',
+          height: '75vh'
+        }}>
           <motion.img
-            layoutId={`image-${imageData.src}`}
+            layoutId={`image-${imageData.webpSrc}`}
             className='object-contain'
             animate={{ borderRadius: '0px' }}
-            src={imageData.src}
-            alt={imageData.src}
+            src={imageData.webpSrc}
+            alt={imageData.webpSrc}
             style={{
               maxHeight: '75vh',
               maxWidth: '50vw',
-              // height: "50vh",
-              marginLeft: 'auto',
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 1,
             }}
+          />
+          <motion.img
+            className='object-contain'
+            initial={{ opacity: 0 }}
+            animate={{ borderRadius: '0px', opacity: 1 }}
+            src={imageData.jpgSrc}
+            alt={imageData.webpSrc}
+            style={{
+              maxHeight: '75vh',
+              maxWidth: '50vw',
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 2,
+            }}
+            transition={{ duration: 0.2, delay: 1 }}
           />
         </div>
         <motion.div
@@ -102,22 +130,22 @@ const Thumbnail: FC<ThumbnailProps> = ({
         >
           <motion.div
             className='p-6 shadow-2xl bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col md:flex-row items-center gap-6'
-            layoutId={`card-${imageData.src}`}
+            layoutId={`card-${imageData.webpSrc}`}
           >
             <div className='text-left w-full'>
               <motion.h3
-                layoutId={`desc-${imageData.src}`}
+                layoutId={`desc-${imageData.webpSrc}`}
                 className='text-3xl font-bold mb-1'
               >
                 {imageData.description}
               </motion.h3>
-              <motion.p layoutId={`desc-u${imageData.src}`} className='text-base'>
+              <motion.p layoutId={`desc-u${imageData.webpSrc}`} className='text-base'>
                 {imageData.location}
               </motion.p>
               <div className='flex flex-row md:flex-row items-start md:items-center gap-2 mt-4'>
                 <ShimmerButton
                   content={<p>Buy</p>}
-                  handleClick={() => window.open(imageData.src, '_blank')}
+                  handleClick={() => window.open(imageData.webpSrc, '_blank')}
                   loadingIndex={0}
                   tile={false}
                   title='buy'
@@ -152,13 +180,13 @@ const Thumbnail: FC<ThumbnailProps> = ({
     </div>
   ) : (
     <motion.div
-      layoutId={imageData.src}
+      layoutId={imageData.webpSrc}
       transition={layoutTransition}
       className='card cursor-pointer overflow-visible'
     >
       <ShimmerButton
         content={tileContent}
-        title={imageData.src}
+        title={imageData.webpSrc}
         handleClick={handleToggle}
         tile={true}
         loadingIndex={loadingIndex}
