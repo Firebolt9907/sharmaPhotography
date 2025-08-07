@@ -6,4 +6,7 @@ import netlifyPlugin from "@netlify/vite-plugin-react-router";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths(), netlifyPlugin()],
+  ssr: {
+    noExternal: ["@mjackson/node-fetch-server"],
+  },
 });
