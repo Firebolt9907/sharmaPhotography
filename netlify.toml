@@ -1,0 +1,4 @@
+[functions]
+  # This explicitly copies the required module into your function's package,
+  # guaranteeing it will be found at runtime.
+  included_files = ["node_modules/@mjackson/node-fetch-server/**"]
