@@ -6,6 +6,7 @@ import ImageData from '~/components/enums/imageData'
 interface ThumbnailProps {
   imageData?: ImageData
   loadingIndex?: number
+  unbounded: boolean
 }
 
 const layoutTransition = {
@@ -15,8 +16,9 @@ const layoutTransition = {
 } as const
 
 const Thumbnail: FC<ThumbnailProps> = ({
-  imageData = new ImageData("", "", "", '', ''),
-  loadingIndex = 0
+  imageData = new ImageData("", "", "", '', '', ""),
+  loadingIndex = 0,
+  unbounded = false
 }) => {
   const [stateOpen, setOpen] = useState(false)
 
@@ -31,7 +33,7 @@ const Thumbnail: FC<ThumbnailProps> = ({
         className='mx-auto object-contain'
         src={imageData.webpSrc}
         alt={imageData.webpSrc}
-        style={{ height: "40vh" }}
+        style={unbounded ? { height: "100%", width: "100%" } : { height: "40vh" }}
       />
       {/* <motion.p
         layoutId={`desc-${imageSrc}`}

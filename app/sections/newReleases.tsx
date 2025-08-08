@@ -10,18 +10,15 @@ const NewReleases: React.FC = () => {
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/Firebolt9907/sharmaPhotographyData/refs/heads/main/images.json')
       .then(response => {
-        console.log('Fetched data:', response.status)
-        console.log("data: ", response.body)
         if (!response.ok) {
           return
         }
         response.json().then(data => {
-          console.log("data: ", data)
           if (data && data.images && data.images.length > 0) {
-            console.log("image 0: ", data.images[0])
             var tempImages = []
             for (const image of data.images) {
-              const imageObject = new ImageData(image.jpgUrl, image.webpUrl, image.description, image.uploadedAt, image.location ?? "")
+              console.log("image type" + image.imageType)
+              const imageObject = new ImageData(image.jpgUrl, image.webpUrl, image.description, image.uploadedAt, image.location ?? "", image.imageType)
               tempImages.push(imageObject)
             }
             updateImages(tempImages)
@@ -43,7 +40,7 @@ const NewReleases: React.FC = () => {
             marginTop: "50px",
           }}
         >
-          <Thumbnail imageData={image} />
+          <Thumbnail imageData={image} unbounded={false} />
         </div>
       ))} />
     </LayoutGroup>
