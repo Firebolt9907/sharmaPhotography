@@ -14,15 +14,7 @@ const NavBar: React.FC = () => {
 
       <nav className='flex row gap-3'>
         <ShimmerButton
-          content={<h3>Projects</h3>}
-          tile={false}
-          title='Projects'
-          handleClick={() => {
-            window.location.href = '#projects'
-          }}
-        />
-        <ShimmerButton
-          content={<h3>Contact</h3>}
+          content={<h3>Contact Me</h3>}
           tile={false}
           title='Contact'
           handleClick={() => {
